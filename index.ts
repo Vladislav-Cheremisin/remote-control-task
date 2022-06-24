@@ -1,9 +1,8 @@
-import Jimp from "jimp";
-import { httpServer } from "./src/http_server/index";
-import robot from "robotjs";
-import { WebSocketServer } from "ws";
+import runHttpServer from "./src/http_server/server";
+import createWsServer from "./src/ws_server/ws_server";
 
-const HTTP_PORT: number = 3000;
+import dotenv from "dotenv";
 
-console.log(`Start static http server on the ${HTTP_PORT} port!`);
-httpServer.listen(HTTP_PORT);
+dotenv.config();
+runHttpServer(process.env.HTTP_PORT);
+createWsServer(process.env.WS_PORT);
