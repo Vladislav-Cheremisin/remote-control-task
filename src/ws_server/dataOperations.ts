@@ -38,6 +38,10 @@ const dataOperations = (wss: ws.WebSocket): void => {
         case "mouse_position":
           wsStream.write(mouseOps.getMousePosition());
           break;
+        case "draw_circle":
+          mouseOps.drawCircle(+commandDataArr[1]);
+          wsStream.write(commandDataArr[0]);
+          break;
         default:
           wsStream.write("incorrect_command");
       }

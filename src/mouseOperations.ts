@@ -32,6 +32,21 @@ class MouseOperations {
 
     return `mouse_position ${mousePos.x}px,${mousePos.y}px`;
   }
+
+  drawCircle(radius: number): void {
+    const mousePos: mousePosition = robot.getMousePos();
+
+    robot.mouseToggle("down");
+
+    for (let i = 0; i <= Math.PI * 2; i += 0.02) {
+      const x = mousePos.x - radius * Math.cos(i) + radius;
+      const y = mousePos.y + radius * Math.sin(i);
+
+      robot.dragMouse(x, y);
+    }
+
+    robot.mouseToggle("up");
+  }
 }
 
 const mouseOps = new MouseOperations();
