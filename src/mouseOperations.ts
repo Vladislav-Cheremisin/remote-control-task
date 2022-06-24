@@ -47,6 +47,40 @@ class MouseOperations {
 
     robot.mouseToggle("up");
   }
+
+  drawRectangle(width: number, length: number): void {
+    const mousePos: mousePosition = robot.getMousePos();
+    let currentXPos: number = mousePos.x;
+    let currentYPos: number = mousePos.y;
+
+    robot.mouseToggle("down");
+
+    for (let i = 0; i < width; i++) {
+      currentXPos += 1;
+
+      robot.dragMouse(currentXPos, currentYPos);
+    }
+
+    for (let i = 0; i < length; i++) {
+      currentYPos += 1;
+
+      robot.dragMouse(currentXPos, currentYPos);
+    }
+
+    for (let i = 0; i < width; i++) {
+      currentXPos -= 1;
+
+      robot.dragMouse(currentXPos, currentYPos);
+    }
+
+    for (let i = 0; i < length; i++) {
+      currentYPos -= 1;
+
+      robot.dragMouse(currentXPos, currentYPos);
+    }
+
+    robot.mouseToggle("up");
+  }
 }
 
 const mouseOps = new MouseOperations();

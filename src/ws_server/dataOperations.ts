@@ -42,6 +42,10 @@ const dataOperations = (wss: ws.WebSocket): void => {
           mouseOps.drawCircle(+commandDataArr[1]);
           wsStream.write(commandDataArr[0]);
           break;
+        case "draw_rectangle":
+          mouseOps.drawRectangle(+commandDataArr[1], +commandDataArr[2]);
+          wsStream.write(commandDataArr[0]);
+          break;
         default:
           wsStream.write("incorrect_command");
       }
