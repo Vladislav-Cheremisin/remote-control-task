@@ -1,5 +1,4 @@
 import Jimp from "jimp";
-import robot from "robotjs";
 import ws from "ws";
 
 import dataOperations from "./dataOperations";
