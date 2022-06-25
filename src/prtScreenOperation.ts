@@ -11,8 +11,20 @@ const makeScreenshot = async (): Promise<string | void> => {
       200
     ).image;
     const jimpImg = new Jimp(200, 200);
+    let bitmapIndex = 0;
 
-    jimpImg.bitmap.data = img;
+    jimpImg.scan(
+      0,
+      0,
+      jimpImg.bitmap.width,
+      jimpImg.bitmap.height,
+      (x, y, idx) => {
+        jimpImg.bitmap.data[idx + 2] = img.readUInt8(bitmapIndex++);
+        jimpImg.bitmap.data[idx + 1] = img.readUInt8(bitmapIndex++);
+        jimpImg.bitmap.data[idx + 0] = img.readUInt8(bitmapIndex++);
+        jimpImg.bitmap.data[idx + 3] = img.readUInt8(bitmapIndex++);
+      }
+    );
 
     const jimpImgBuffer = await jimpImg.getBufferAsync(Jimp.MIME_PNG);
     const result = jimpImgBuffer.toString("base64");
