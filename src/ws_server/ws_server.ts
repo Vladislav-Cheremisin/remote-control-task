@@ -1,4 +1,3 @@
-import Jimp from "jimp";
 import ws from "ws";
 
 import dataOperations from "./dataOperations";

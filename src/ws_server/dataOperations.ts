@@ -3,6 +3,7 @@ import ws from "ws";
 
 import userCounter from "../../utils/userCounter";
 import mouseOps from "../mouseOperations";
+import makeScreenshot from "../prtScreenOperation";
 
 const dataOperations = (wss: ws.WebSocket): void => {
   userCounter.userConnected();
@@ -49,6 +50,9 @@ const dataOperations = (wss: ws.WebSocket): void => {
         case "draw_square":
           mouseOps.drawRectangle(+commandDataArr[1], +commandDataArr[1]);
           wsStream.write(commandDataArr[0]);
+          break;
+        case "prnt_scrn":
+          wsStream.write(await makeScreenshot());
           break;
         default:
           wsStream.write("incorrect_command");
