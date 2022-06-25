@@ -11,6 +11,11 @@ const createWsServer = (envPort: string | undefined): void => {
     wss.on("listening", () => {
       console.log(`Websocket server started on ${envPort} port\n`);
     });
+
+    process.on("SIGINT", () => {
+      wss.close();
+      console.log(`Websocket on ${envPort} port was closed`);
+    });
   }
 };
 

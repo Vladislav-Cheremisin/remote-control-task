@@ -30,6 +30,11 @@ const runHttpServer = (envPort: string | undefined): void => {
     httpServer.listen(+envPort, () => {
       console.log(`Static http server started on the ${envPort} port!`);
     });
+
+    process.on("SIGINT", () => {
+      httpServer.close();
+      console.log(`Static http server on ${envPort} port was closed`);
+    });
   }
 };
 
