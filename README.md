@@ -29,6 +29,10 @@
 - `jimp`
 - `robotjs`
 - `dotenv`
+- `typescript`
+- `ts-node`
+- `nodemon`
+- `@types/ws`
 
 ## Контакты:
 
