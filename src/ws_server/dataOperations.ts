@@ -22,40 +22,40 @@ const dataOperations = (wss: ws.WebSocket): void => {
       switch (commandDataArr[0]) {
         case "mouse_up":
           mouseOps.mouseUp(+commandDataArr[1]);
-          wsStream.write(commandDataArr[0] + "\0");
+          wsStream.write(`${commandDataArr[0]} \0`);
           break;
         case "mouse_down":
           mouseOps.mouseDown(+commandDataArr[1]);
-          wsStream.write(commandDataArr[0] + "\0");
+          wsStream.write(`${commandDataArr[0]} \0`);
           break;
         case "mouse_left":
           mouseOps.mouseLeft(+commandDataArr[1]);
-          wsStream.write(commandDataArr[0] + "\0");
+          wsStream.write(`${commandDataArr[0]} \0`);
           break;
         case "mouse_right":
           mouseOps.mouseRight(+commandDataArr[1]);
-          wsStream.write(commandDataArr[0] + "\0");
+          wsStream.write(`${commandDataArr[0]} \0`);
           break;
         case "mouse_position":
-          wsStream.write(mouseOps.getMousePosition() + "\0");
+          wsStream.write(`${mouseOps.getMousePosition()} \0`);
           break;
         case "draw_circle":
           mouseOps.drawCircle(+commandDataArr[1]);
-          wsStream.write(commandDataArr[0] + "\0");
+          wsStream.write(`${commandDataArr[0]} \0`);
           break;
         case "draw_rectangle":
           mouseOps.drawRectangle(+commandDataArr[1], +commandDataArr[2]);
-          wsStream.write(commandDataArr[0] + "\0");
+          wsStream.write(`${commandDataArr[0]} \0`);
           break;
         case "draw_square":
           mouseOps.drawRectangle(+commandDataArr[1], +commandDataArr[1]);
-          wsStream.write(commandDataArr[0] + "\0");
+          wsStream.write(`${commandDataArr[0]} \0`);
           break;
         case "prnt_scrn":
-          wsStream.write((await makeScreenshot()) + "\0");
+          wsStream.write(`${await makeScreenshot()} \0`);
           break;
         default:
-          wsStream.write("incorrect_command");
+          wsStream.write("incorrect_command \0");
       }
     } catch (err) {
       console.log(
