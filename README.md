@@ -1,30 +1,44 @@
-# RSSchool NodeJS websocket task template
-> Static http server and base task packages.
+## Установка приложения:
 
-## Installation
-1. Clone/download repo
-2. `npm install`
+1. Установите LTS версию NodeJS с официального сайта.
+2. Скачайте файлы приложения нажав на кнопку `Code` в правом верхнем углу репозитория и выбрав из контекстного меню удобный для вас способ загрузки.
+3. Распакуйте файлы приложения на локальном диске своего устройства.
+4. Откройте папку с файлами приложения используя редактор кода (например VSCode) или консоль.
+5. Выполните в консоли команду `npm install`.
 
-## Usage
-**Development**
+## Запуск приложения:
 
-`npm run start:dev`
+Приложение имеет следующие консольные команды позволяющие произвести запуск:
 
-* App served @ `http://localhost:8181` with nodemon
+- `npm run start` - Запустить приложение.
+- `npm run start:dev` - Запустить приложение в режиме разработки (с использованием Nodemon).
 
-**Production**
+После запуска приложения необходимо открыть его в браузере (по умолчанию http://localhost:3000)
 
-`npm run start`
+## Используемые порты:
 
-* App served @ `http://localhost:8181` without nodemon
+Порты используемые HTTP и Websocket сервером указаны в файле `.env`.
 
----
+## Функционал приложения:
 
-**All commands**
+Функционал приложения описан в Front части которую необходимо открыть в браузере после запуска. (по умолчанию http://localhost:3000)
 
-Command | Description
---- | ---
-`npm run dev` | App served @ `http://localhost:8181` with nodemon
-`npm run start` | App served @ `http://localhost:8181` without nodemon
+## Используемые npm пакеты:
 
-**Note**: replace `npm` with `yarn` in `package.json` if you use yarn.
+- `ws`
+- `jimp`
+- `robotjs`
+- `dotenv`
+- `typescript`
+- `ts-node`
+- `nodemon`
+- `@types/ws`
+
+## Контакты:
+
+В случае необходимости получения дополнительной информации, и/или каких либо разъяснений по логике работы приложения можете связаться со мной:
+
+- Discord: `ch1rik#2995`
+- Email: `vladislav@cheremis.in`
+
+**Приятного пользования!**
